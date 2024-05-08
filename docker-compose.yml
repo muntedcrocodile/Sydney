@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  web:
+    build: src
+    environment:
+      - HOST=http://localhost:8000
+      - PORT=8000 # Port to run the server on needs to be same as HOST
+      - DATA_PATH=data
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    env_file:
+      - .env
+    ports:
+      - "0.0.0.0:8000:8000"
+    volumes:
+      - ./data:/app/data
+
+    develop:
+      watch:
+        - action: sync
+          path: .
+          exclude:
+            - .git
+            - .venv
+            - data
+            - __pycache__
+            - .vscode
+            - .gitignore
+            - .dockerignore
+            - .env
+            - .requirements.txt
+        - action: rebuild
+          path: .requirements.txt

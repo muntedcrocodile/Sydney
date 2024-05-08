@@ -1,0 +1,15 @@
+langchain
+flask
+openai
+langchain-openai
+Flask-SocketIO
+python-dotenv
+Flask-Cors
+
+# modules
+duckduckgo-search
+beautifulsoup4
+html2text
+langchain_experimental
+pypdf
+markdownify

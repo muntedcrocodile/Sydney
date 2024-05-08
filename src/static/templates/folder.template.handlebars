@@ -1,0 +1,15 @@
+<ul class="folders">
+    <li class="folder drag_item" draggable="true" id="{{id}}">
+        <div draggable="false" class="tree">
+            <h2>
+                {{name}}
+            </h2>
+            <button onclick="new_file('{{id}}')"><img src="static/img/file-plus-svgrepo-com.svg" alt=""></button>
+            <button onclick="new_folder('{{id}}')"><img src="static/img/folder-plus.svg" alt=""></button>
+            {{#unless (isEqualTo id "0")}}
+            <button onclick="edit_name('{{id}}')"><img src="static/img/paintbrush-alt.svg" alt=""></button>
+            {{/unless}}
+            <button onclick="delete_tree('{{id}}')"><img src="static/img/trash-alt.svg" alt=""></button>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,16 @@
+{
+    "0": {
+        "type": "folder",
+        "name": "/"
+    },
+    "of7w9h0f6q": {
+        "type": "folder",
+        "name": "New Folder",
+        "location": "0"
+    },
+    "9cin10ssc8": {
+        "type": "chat",
+        "name": "New Chat",
+        "location": "of7w9h0f6q"
+    }
+}

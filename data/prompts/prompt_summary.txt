@@ -1,0 +1,2 @@
+include the following content in the summary: $CONTENT.
+And write a concise summary of the following: "{text}" CONCISE SUMMARY:

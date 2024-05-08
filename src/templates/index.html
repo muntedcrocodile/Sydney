@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sydney</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+
+    <!-- math and markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath/texmath.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markdown-it-texmath/css/texmath.min.css">
+
+    <!-- code hieghlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="static/css/theme-vs.css">
+
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/rust.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+
+    <!-- templating -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+    <script src="static/js/message.template.handlebars" type="text/x-handlebars-template"></script>
+
+</head>
+
+<body class="theme-vs">
+    <div class="container">
+        <div class="sidebar">
+
+        </div>
+        <div class="right">
+            <nav id="nav">
+            </nav>
+
+            <div class="chat">
+                <div id="message-container" class="chat-history">
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="buttons-row">
+                    <div id="input-prompt"></div>
+                    <!-- <button onclick="send()">Send</button>
+                    <button>Continue</button>
+                    <button>Stop</button> -->
+                </div>
+                <div class="hidden chat-input">
+                    <textarea id="input"></textarea>
+                    <div class="md-render">
+                        <div id="input-render" style="display: none;"></div>
+                        <div class="showdown-rendered"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="static/js/main.js"></script>
+<script src="static/js/message_actions.js"></script>
+<script src="static/js/tree_actions.js"></script>
+
+</html>

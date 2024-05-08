@@ -1,0 +1,51 @@
+{{#each messages}}
+<div id="{{id}}" class="message">
+    <div class="profile-picture">
+        <img src="static/img/{{image}}.png" alt="">
+        <select class="custom-select" name="" id="">
+            {{#if (isEqualTo image "pfp")}}
+            <option selected value="human">Human</option>
+            {{else}}
+            <option value="human">Human</option>
+            {{/if}}
+            {{#if (isEqualTo image "gpt")}}
+            <option selected value="ai">AI</option>
+            {{else}}
+            <option value="ai">AI</option>
+            {{/if}}
+            {{#if (isEqualTo image "sys")}}
+            <option selected value="system">System</option>
+            {{else}}
+            <option value="system">System</option>
+            {{/if}}
+
+        </select>
+    </div>
+    <div class="message-content">
+        {{#if @last}}
+        <div class="message-header">{{thought}}</div>
+        {{else}}
+        <div class="message-header collapsed">{{thought}}</div>
+        {{/if}}
+        <div class="message-body">
+            <div class="md-render">
+                <div class="showdown-raw hidden">{{content}}</div>
+                <div class="showdown-rendered"></div>
+            </div>
+        </div>
+        <div class="message-actions">
+
+
+            <button onclick="m_toggle_md('{{id}}')"><img src="static/img/lightbulb-alt.svg" alt=""></button>
+            <button onclick="m_copy('{{id}}')"><img src="static/img/clipboard.svg" alt=""></button>
+
+            <button onclick="m_edit('{{id}}')"><img src="static/img/paintbrush-alt.svg" alt=""></button>
+            <button onclick="m_delete('{{id}}')"><img src="static/img/trash-alt.svg" alt=""></button>
+
+        </div>
+        <div class="new-message">
+            <button onclick="m_new('{{id}}')"><img src="static/img/message-square-plus.svg" alt=""></button>
+        </div>
+    </div>
+</div>
+{{/each}}

@@ -1,0 +1,74 @@
+.theme-vs pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em
+}
+
+.theme-vs code.hljs {
+    padding: 3px 5px
+}
+
+.theme-vs .hljs * {
+    background-color: #111 !important;
+}
+
+.theme-vs .hljs {
+    background-color: #111 !important;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.theme-vs .hljs-comment,
+.theme-vs .hljs-quote,
+.theme-vs .hljs-variable {
+    color: #6a9955
+}
+
+.theme-vs .hljs-built_in,
+.theme-vs .hljs-keyword,
+.theme-vs .hljs-name,
+.theme-vs .hljs-selector-tag,
+.theme-vs .hljs-tag {
+    color: #c586c0
+}
+
+.theme-vs .hljs-addition,
+.theme-vs .hljs-attribute,
+.theme-vs .hljs-literal,
+.theme-vs .hljs-section,
+.theme-vs .hljs-string,
+.theme-vs .hljs-template-tag,
+.theme-vs .hljs-template-variable,
+.theme-vs .hljs-title,
+.theme-vs .hljs-type {
+    color: #dcdcaa
+}
+
+.theme-vs .hljs-deletion,
+.theme-vs .hljs-meta,
+.theme-vs .hljs-selector-attr,
+.theme-vs .hljs-selector-pseudo {
+    color: #2b91af
+}
+
+.theme-vs .hljs-doctag {
+    color: gray
+}
+
+.theme-vs .hljs-attr {
+    color: #ce9178
+}
+
+.theme-vs .hljs-bullet,
+.theme-vs .hljs-link,
+.theme-vs .hljs-symbol {
+    color: #00b0e8
+}
+
+.theme-vs .hljs-emphasis {
+    font-style: italic
+}
+
+.theme-vs .hljs-strong {
+    font-weight: 700
+}
