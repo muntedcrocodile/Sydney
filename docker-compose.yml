@@ -8,6 +8,7 @@ services:
       - PORT=8000 # Port to run the server on needs to be same as HOST
       - DATA_PATH=data
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_API_BASE_URL=https://api.openai.com/v1
     env_file:
       - .env
     ports:

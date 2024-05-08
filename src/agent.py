@@ -71,7 +71,7 @@ class AgentInput(BaseModel):
     )
 
 def make_agent_executor(model_name, tool_names):
-    llm = ChatOpenAI(model_name=model_name, openai_api_key=os.environ.get("OPENAI_API_KEY"))
+    llm = ChatOpenAI(model_name=model_name, openai_api_key=os.environ.get("OPENAI_API_KEY"), openai_api_base=os.environ.get("OPENAI_API_BASE_URL"))
     chat_model_with_stop = llm.bind(stop=["\nObservation"])
     
     tools = [TOOLS[tool_name] for tool_name in tool_names]
