@@ -1,9 +1,21 @@
+
 <ul class="folders">
+    {{#if (isEqualTo active true)}}
     <li class="folder drag_item" draggable="true" id="{{id}}">
+    {{else}}
+    <li class="folder drag_item hide" draggable="true" id="{{id}}">
+    {{/if}}
         <div draggable="false" class="tree">
-            <h2>
+            {{#if (isEqualTo active true)}}
+            <button  onclick="collapse_folder('{{id}}')"><img src="static/img/folder.svg" alt=""></button>
+            {{else}}
+            <button  onclick="expand_folder('{{id}}')"><img src="static/img/folder-minus.svg" alt=""></button>
+            {{/if}}
+
+            <h2 class="foldername">
                 {{name}}
             </h2>
+            <br>
             <button onclick="new_file('{{id}}')"><img src="static/img/file-plus-svgrepo-com.svg" alt=""></button>
             <button onclick="new_folder('{{id}}')"><img src="static/img/folder-plus.svg" alt=""></button>
             {{#unless (isEqualTo id "0")}}
@@ -13,3 +25,6 @@
         </div>
     </li>
 </ul>
+
+
+

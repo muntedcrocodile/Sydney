@@ -137,6 +137,38 @@ def message_new():
         return "Success"
 
 
+@app.route("/collapse_folder", methods=['POST'])
+def collapse_folder():
+    request_data = request.get_json()
+    with open(os.path.join(os.environ.get("DATA_PATH"), "chat_index.json"), 'r+') as f:
+        
+        file_data = json.load(f)
+        file_data[request_data["id"]]["active"] = False
+        
+        f.seek(0)
+        json.dump(file_data, f)
+        f.truncate()
+        
+        return 'Success'
+
+
+@app.route("/expand_folder", methods=['POST'])
+def expand():
+    request_data = request.get_json()
+    with open(os.path.join(os.environ.get("DATA_PATH"), "chat_index.json"), 'r+') as f:
+        
+        file_data = json.load(f)
+        file_data[request_data["id"]]["active"] = True
+        
+        f.seek(0)
+        json.dump(file_data, f)
+        f.truncate()
+        
+        return 'Success'
+
+
+
+
 @app.route('/folders_add', methods=['POST'])
 def folders_add():
     request_data = request.get_json()
@@ -147,6 +179,7 @@ def folders_add():
         file_data[new_id] = {
             "type": request_data["type"],
             "name": request_data['name'],
+            "active": True,
             "location": request_data['id']
         }
         
@@ -267,13 +300,14 @@ def generate(req):
     id1 = make_id()
     id2 = make_id()
     
-    print("promp:", prompt)
+    # print("promp:", prompt)
      
     with open(os.path.join(os.environ.get("DATA_PATH"), "chats", "{}.json".format(chat)), 'r+') as f:
         data = json.load(f)
         
         chatlog = list()
         for i in data["data"]:
+            # print(i["content"])
             chatlog.append((i["user"], i["content"]))
                     
         t = int(time.time())

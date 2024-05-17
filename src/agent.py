@@ -56,8 +56,9 @@ def get_user_data():
 
 def _format_chat_history(chat_history: List[Tuple[str, str]]):
     buffer = []
+    add = {"human": "", "ai": "Final Answer: ", "system": ""}
     for author, content in chat_history:
-            buffer.append({"human": HumanMessage, "ai": AIMessage, "system": SystemMessage}[author](content=content))
+            buffer.append({"human": HumanMessage, "ai": AIMessage, "system": SystemMessage}[author](content=add[author]+content))
     return buffer
 
 def _format_enviroment(enviroment):

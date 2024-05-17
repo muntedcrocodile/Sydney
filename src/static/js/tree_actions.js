@@ -20,6 +20,49 @@ function move_tree(id, to_id) {
 }
 
 
+
+function collapse_folder(item_id) {
+    $.ajax({
+        url: '/collapse_folder',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            type: "chat",
+            id: item_id,
+            name: name
+        }),
+        success: function (response) {
+            update_tree()
+        },
+
+        error: function (xhr, status, error) {
+            // Handle any errors
+            console.error(error);
+        }
+    })
+}
+function expand_folder(item_id) {
+    $.ajax({
+        url: '/expand_folder',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            type: "chat",
+            id: item_id,
+            name: name
+        }),
+        success: function (response) {
+            update_tree()
+        },
+
+        error: function (xhr, status, error) {
+            // Handle any errors
+            console.error(error);
+        }
+    })
+}
+
+
 function new_file(item_id) {
     get_input("New Chat", "Enter the name of the new Chat", function (name, event) {
         $.ajax({

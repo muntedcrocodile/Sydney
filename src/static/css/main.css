@@ -12,25 +12,6 @@ body {
     height: 100vh;
 }
 
-.sidebar {
-    width: auto;
-    background-color: #333;
-    color: white;
-    padding-right: 20px;
-    max-width: 25%;
-}
-
-.folders,
-.files {
-    list-style-type: none;
-    padding: 0 0 0 20px;
-}
-
-.folder,
-.file {
-    padding: 5px 0 5px 5px;
-}
-
 .right {
     flex: 1;
     display: flex;
@@ -223,9 +204,11 @@ button * {
     0% {
         color: orange;
     }
+
     50% {
         color: white;
     }
+
     100% {
         color: orange;
     }

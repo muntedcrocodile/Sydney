@@ -21,4 +21,4 @@ EXPOSE $PORT
 # CMD gunicorn --bind 0.0.0.0:$PORT app:app
 # CMD ["gunicorn", "-k", "geventwebsocket.gunicorn.workers.GeventWebSocketWorker", "-w", "1", "--bind", "0.0.0.0:$PORT", "myapp:app"]
 # This is not a proper production setup, but it's good enough for what its being used for for now at least
-CMD python app.py
+CMD python -u app.py

@@ -265,7 +265,7 @@ sidebar = $(".sidebar")
 sidebar[0].innerHTML = ""
 var sidebar_data;
 
-function render_tree(_data, folder_template, chat_template) {
+function render_tree(_data, folder_template, chat_template, file_template) {
 
     data = JSON.parse(JSON.stringify(_data)) // we are operating on a copy cos we will anilate this object
     sidebar.html("")
@@ -295,7 +295,11 @@ function render_tree(_data, folder_template, chat_template) {
                 } else {
                     // check if a folder still exists in data and skip rendering this chat
                     if (!Object.values(data).some(jtem => jtem.type === "folder")) {
-                        sidebar.find('#' + item.location)[0].innerHTML += chat_template(item);
+                        if (item.type === "file") {
+                            sidebar.find('#' + item.location)[0].innerHTML += file_template(item);
+                        } else {
+                            sidebar.find('#' + item.location)[0].innerHTML += chat_template(item);
+                        }
                         delete data[key]
                     }
                 }
@@ -405,6 +409,10 @@ function render_tree(_data, folder_template, chat_template) {
         }
     })
 
+    $(".foldername").on('click', function() {
+        $(this).parent().children().first().click()
+    })
+
 
     current = $("#" + localStorage.getItem("active"));
     current.addClass("active")
@@ -414,13 +422,16 @@ function render_tree(_data, folder_template, chat_template) {
 
 }
 
-var folder_template, chat_template;
+var folder_template, chat_template, file_template;
 
 compileHandlebarsTemplate('static/templates/folder.template.handlebars').then(template => {
     folder_template = template;
     compileHandlebarsTemplate('static/templates/chat.template.handlebars').then(template => {
         chat_template = template;
-        update_tree()
+        compileHandlebarsTemplate('static/templates/file.template.handlebars').then(template => {
+            file_template = template;
+            update_tree()
+        });
     });
 });
 
@@ -432,7 +443,7 @@ function update_tree() {
         method: 'GET',
         success: function (response) {
             sidebar_data = response;
-            render_tree(response, folder_template, chat_template);
+            render_tree(response, folder_template, chat_template, file_template);
         },
         error: function (xhr, status, error) {
             console.error(error);

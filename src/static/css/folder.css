@@ -1,0 +1,23 @@
+.sidebar {
+    overflow: auto;
+    width: auto;
+    background-color: #333;
+    color: white;
+    padding-right: 20px;
+    max-width: 25%;
+}
+
+.folders,
+.files {
+    list-style-type: none;
+    padding: 0 0 0 20px;
+}
+
+.folder,
+.file {
+    padding: 5px 0 5px 5px;
+}
+
+.hide>*:not(:first-child) {
+    display: none;
+}
